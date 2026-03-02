@@ -146,27 +146,8 @@ Interactive menu:
 
 ## 🧩 How It Works
 
-```
-User Query
-    │
-    ▼
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  NewsAPI         │────▶│  Gemini Embeddings│────▶│  ChromaDB        │
-│  (news_retriever)│     │  (embedding_engine)│     │  Vector Store    │
-└─────────────────┘     └──────────────────┘     └────────┬────────┘
-                                                          │
-                                                   Similarity Search
-                                                          │
-                                                          ▼
-                                                 ┌─────────────────┐
-                                                 │  Groq LLM        │
-                                                 │  (summarizer)    │
-                                                 │  stuff / map_red │
-                                                 └────────┬────────┘
-                                                          │
-                                                          ▼
-                                                    Summary Output
-```
+<img width="815" height="290" alt="image" src="https://github.com/user-attachments/assets/cba9f094-7983-4d78-a51f-7c32908050c2" />
+
 
 1. **Fetch** — `news_retriever.py` pulls articles from NewsAPI's "everything" endpoint
 2. **Embed** — `embedding_engine.py` splits text into chunks & vectorises with Gemini
