@@ -7,6 +7,8 @@
 ![Flask](https://img.shields.io/badge/Flask-Web_UI-mediumpurple?style=for-the-badge&logo=flask&logoColor=white)
 
 ---
+<img width="1918" height="911" alt="Screenshot 2026-03-02 232203" src="https://github.com/user-attachments/assets/a8fb0340-752f-4167-9f91-573e9c90937c" />
+
 
 ## ✨ Features
 
