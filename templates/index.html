@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Semantic Summarizer ✨</title>
+    <meta name="description"
+        content="AI-powered news summarization with semantic search — built with LangChain, Groq & Google Gemini">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- ✦ Animated background blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- ✦ Main layout -->
+    <div class="app-layout">
+
+        <!-- ── Sidebar ──────────────────────────────────────── -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">✨</span>
+                <h1 class="logo-text">NewsBrief</h1>
+            </div>
+
+            <!-- Saved Topics -->
+            <section class="sidebar-section">
+                <h2 class="section-title">
+                    <span class="section-icon">💜</span> Saved Topics
+                </h2>
+                <div id="topics-list" class="topics-list">
+                    <p class="empty-state">No saved topics yet</p>
+                </div>
+                <div class="add-topic-row">
+                    <input type="text" id="new-topic-input" class="glass-input small" placeholder="Add a topic…">
+                    <button id="add-topic-btn" class="btn-icon" title="Save topic">＋</button>
+                </div>
+            </section>
+
+            <!-- Preferences -->
+            <section class="sidebar-section">
+                <h2 class="section-title">
+                    <span class="section-icon">⚙️</span> Preferences
+                </h2>
+                <div class="pref-row">
+                    <label>Default mode</label>
+                    <select id="default-mode-select" class="glass-select">
+                        <option value="brief">Brief</option>
+                        <option value="detailed">Detailed</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- History -->
+            <section class="sidebar-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🕑</span> Search History
+                </h2>
+                <div id="history-list" class="history-list">
+                    <p class="empty-state">No searches yet</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- ── Main content ─────────────────────────────────── -->
+        <main class="main-content">
+
+            <!-- Hero / Search area -->
+            <header class="hero">
+                <h2 class="hero-title">
+                    What's happening in the world? <span class="sparkle">🌸</span>
+                </h2>
+                <p class="hero-subtitle">Search any topic and get AI-powered semantic summaries instantly</p>
+
+                <form id="search-form" class="search-form" autocomplete="off">
+                    <div class="search-row">
+                        <input type="text" id="search-topic" class="glass-input"
+                            placeholder="Enter a topic (e.g. AI, climate, fashion)…" required>
+                        <select id="search-mode" class="glass-select">
+                            <option value="brief">✨ Brief</option>
+                            <option value="detailed">📝 Detailed</option>
+                        </select>
+                    </div>
+                    <div class="search-row">
+                        <input type="text" id="search-query" class="glass-input"
+                            placeholder="Ask a question about this topic…">
+                        <button type="submit" class="btn-primary" id="search-btn">
+                            <span class="btn-text">Summarize</span>
+                            <span class="btn-loader" style="display:none;">
+                                <span class="dot-pulse"></span>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </header>
+
+            <!-- Results area -->
+            <section id="results-area" class="results-area" style="display:none;">
+
+                <!-- Summary card -->
+                <div class="summary-card glass-card fade-in" id="summary-card">
+                    <div class="summary-header">
+                        <span class="summary-badge" id="summary-badge">BRIEF</span>
+                        <h3 class="summary-topic" id="summary-topic">Topic</h3>
+                    </div>
+                    <div class="summary-body" id="summary-body"></div>
+                    <div class="summary-meta" id="summary-meta"></div>
+                </div>
+
+                <!-- Article cards -->
+                <h3 class="articles-heading">📰 Retrieved Articles</h3>
+                <div class="articles-grid" id="articles-grid"></div>
+            </section>
+
+            <!-- Error area -->
+            <div id="error-area" class="error-card glass-card" style="display:none;">
+                <span class="error-icon">⚠️</span>
+                <p id="error-msg"></p>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Mobile sidebar toggle -->
+    <button class="sidebar-toggle" id="sidebar-toggle" title="Toggle sidebar">☰</button>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
